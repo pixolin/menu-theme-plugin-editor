@@ -8,13 +8,22 @@
  * Text Domain:     menu-theme-plugin-editor
  * Domain Path:     /languages
  * Version:         0.1.0
+ * License:         GPL 2.0
  *
  * @package         Menu_Theme_Plugin_Editor
  */
 
 namespace Pixolin;
 
-defined( 'ABSPATH' ) ||  exit;
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Load plugin textdomain.
+ */
+function load_textdomain() {
+	load_plugin_textdomain( 'menu-theme-plugin-editor', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+}
+add_action( 'init', 'Pixolin\load_textdomain' );
 
 /**
  * Add submenu entries for theme file editor and plugin file editor, if a
